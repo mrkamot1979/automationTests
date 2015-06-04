@@ -40,15 +40,26 @@ package tests;
 	    driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
 	    
 	    //at this point, we identify the cell in the table.
-	    
 	   String scompany = driver.findElement(By.xpath("html/body/center/table/tbody/tr[3]/td[2]")).getAttribute("textContent");
 	   //System.out.println(scompany);
-	   if (scompany.equalsIgnoreCase("rakuten")) {
-		System.out.println("Data verification passed");
-	   } else {
-		   System.out.println("Data verification FAILED, please check");
-	   }
+	   if (scompany.equalsIgnoreCase("rakuten")) 
+		   {
+			System.out.println("Data verification passed");
+		   } else {
+			   System.out.println("Data verification FAILED, please check");
+		   }
 	    
+	   
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 	  }
 
 	  @After
