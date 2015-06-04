@@ -51,13 +51,18 @@ public class PageTitleTest {
 		} else {
 			System.out.println("ERROR: incorrect title page");
 		}
-	    
+	    driver.findElement(By.linkText("Extract by Date Range")).click();
+	    if (driver.getTitle().equals("Extract by Date")) {
+			System.out.println("Extract by date tab title correct");
+		} else {
+			System.out.println("ERROR: incorrect title page");
+		}
 	    
 	  }
 
 	  @After
 	  public void tearDown() throws Exception {
-	    //driver.quit();
+	    driver.quit();
 	    String verificationErrorString = verificationErrors.toString();
 	    if (!"".equals(verificationErrorString)) {
 	      fail(verificationErrorString);
