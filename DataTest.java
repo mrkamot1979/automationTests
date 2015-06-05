@@ -41,7 +41,7 @@ package tests;
 	    
 	    //at this point, we identify the cell in the table.
 	   String scompany = driver.findElement(By.xpath("html/body/center/table/tbody/tr[3]/td[2]")).getAttribute("textContent");
-	   //System.out.println(scompany);
+	   //decide if it is equal to the correct value; in this case the correct value is "rakuten"
 	   if (scompany.equalsIgnoreCase("rakuten")) 
 		   {
 			System.out.println("Data verification passed");
@@ -49,18 +49,7 @@ package tests;
 			   System.out.println("Data verification FAILED, please check");
 		   }
 	    
-	   
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  }
+  }
 
 	  @After
 	  public void tearDown() throws Exception {
