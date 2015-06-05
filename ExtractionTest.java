@@ -39,8 +39,31 @@ public class ExtractionTest {
     
     //select the Extract by Date Range from the header
     driver.findElement(By.linkText("Extract by Date Range")).click();
+    //find the input spaces and hit the Submit button
+    driver.findElement(By.id("frmdate")).clear();
+    driver.findElement(By.id("frmdate")).sendKeys("1979-01-01");
+    driver.findElement(By.id("todate")).clear();
+    driver.findElement(By.id("todate")).sendKeys("2015-12-31");
+    driver.findElement(By.id("btnSubmit")).click();
     
+    //validate the table generated
+    String sClientID = driver.findElement(By.xpath("html/body/center[1]/table/tbody/tr[2]/td[1]")).getAttribute("textContent");
+	//decide if it is equal to the correct value; in this case the correct value is "rakuten"
+	/*
+    if (sClientID.equalsIgnoreCase("rakuten")) 
+		   {
+			System.out.println("Data verification passed");
+		   } else {
+			   System.out.println("Data verification FAILED, please check");
+		   }
     
+    */
+    
+    if (sClientID.isEmpty()) {
+		System.out.println("ERROR: Client ID is empty!");
+	} else {
+		System.out.println("PASSED");
+	}
 
     
     
@@ -48,7 +71,7 @@ public class ExtractionTest {
 
   @After
   public void tearDown() throws Exception {
-    driver.quit();
+    //driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);
