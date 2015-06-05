@@ -2,9 +2,12 @@ package tests;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
 import org.junit.*;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -32,6 +35,15 @@ public class BaseTest {
     driver.findElement(By.name("loginButton")).click();
     driver.findElement(By.linkText("New Client")).click();
     driver.findElement(By.linkText("Logout")).click();
+    //String declaration below initializes the variable to house the text
+    String reloginLink;
+    reloginLink = driver.findElement(By.linkText("login")).getText();
+    
+    //This assert compares the text received with the correct text.
+    assertEquals("login", reloginLink);
+
+    
+    
   }
 
   @After
